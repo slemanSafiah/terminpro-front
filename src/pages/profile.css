@@ -1,0 +1,129 @@
+.profile-contianer {
+  box-shadow: 0px 0px 4px rgba(92, 92, 92, 0.267);
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  margin-top: 7em;
+  margin-bottom: 4em;
+}
+
+.profile-personal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2em 1em;
+}
+
+.profile-info {
+  width: 50%;
+  font-size: 1.2rem;
+  color: rgb(75, 75, 75);
+  font-family: Poppins;
+}
+
+.profile-info div:first-child {
+  font-size: 3rem;
+  margin-bottom: 0.4em;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0px 2px 4px 1px rgba(36, 36, 36, 0.466);
+}
+
+.profile-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.gallery-img {
+  transition: 1s ease-in-out;
+}
+
+.gallery-img:hover {
+  filter: grayscale() blur(2px);
+}
+
+.profile-services {
+  width: 100%;
+  height: 350px;
+  background-color: rgb(240, 240, 240);
+  overflow-y: scroll;
+}
+
+.profile-service-details {
+  width: 100%;
+  height: 80px;
+  font-family: Poppins;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+.profile-service-icons {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-service-desc {
+  width: 500px;
+  overflow-x: hidden;
+  color: rgb(82, 82, 82);
+}
+
+.profile-service-price-time {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.profile-sec-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.noti-subs {
+  padding-top: 16px;
+  text-align: center;
+  position: fixed;
+  left: 20px;
+  top: 80px;
+  width: 200px;
+  height: 120px;
+  background-color: #2e7d32;
+  color: rgb(230, 230, 230);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: Poppins;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error {
+  background-color: rgb(190, 29, 29);
+}
+
+.fast-access {
+  background-color: white;
+  color: rgb(54, 54, 54);
+  margin-top: 10px;
+  width: 100%;
+  font-weight: 400;
+  padding: 8px 16px;
+  border-radius: 4px;
+}

@@ -1,0 +1,23 @@
+.about-background {
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+  position: fixed;
+  z-index: -1;
+}
+
+.about-content {
+  width: 80%;
+  padding: 2em 1em;
+  font-size: 1.2rem;
+  font-family: Poppins;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: Poppins;
+  padding-top: 2em;
+}

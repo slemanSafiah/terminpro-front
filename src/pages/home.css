@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap");
+.up {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.home-section1 {
+  width: 100%;
+  height: 100vh;
+}
+
+.home-section1-background {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.home-section1-content {
+  font-family: Poppins;
+  text-align: center;
+  padding-top: 17vh;
+  color: white;
+}
+
+.home-section1-title {
+  margin-bottom: 0.125em;
+  font-size: 6rem;
+  font-family: "Dancing Script";
+}
+
+.home-section1-sub-title {
+  margin-bottom: 0.75em;
+  font-size: 2rem;
+}
+
+.home-section1-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-section1-buttons div {
+  font-weight: 300;
+  padding: 0.5em 1em;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 400;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.home-section1-button-1 {
+  background-color: #00adb6;
+  border-color: #00c6cf;
+  color: white;
+  padding: 1em 2em;
+  font-size: 1.1rem;
+}
+
+.home-section1-button-1:hover {
+  transform: translateY(-7px);
+  background-color: #00c6cf;
+  color: white;
+}
+
+.home-section1-button-2 {
+  padding: 1em 2em;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: rgb(233, 233, 233);
+  background-color: rgb(34, 34, 34);
+}
+
+.home-section1-button-2:hover {
+  transform: translateY(-7px);
+  background-color: rgb(45, 45, 45);
+  color: white;
+}
+
+/*! end of Section 1 */
+
+/*! start of Section 2 */
+.home-section2 {
+  width: 100%;
+  height: 130vh;
+  text-align: center;
+  font-family: Poppins;
+  background: url("../../public/assets/home/salons/section2.jpg");
+  background-size: cover;
+  background-blend-mode: darken;
+  background-color: rgb(45, 45, 45, 0.05);
+}
+
+.home-section2-title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  padding-top: 2em;
+  margin-bottom: 1em;
+  color: rgb(34, 34, 34);
+}
+
+.home-section2-swiper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 2em;
+}
+
+.swiper {
+  height: 400px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.swiper-card {
+  height: 350px;
+  box-shadow: 0 0 4px rgb(34, 34, 34, 0.1);
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgb(45, 45, 45);
+}
+
+.swiper-card-title {
+  font-size: 1rem;
+  background-color: white;
+  color: #5452c2;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  line-height: 1em;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 3px rgb(45, 45, 45);
+}
+
+.section2-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3em;
+}
+
+.outline-button {
+  margin-top: 1rem;
+  padding: 8px 12px;
+  background-color: #00adb6;
+  color: white;
+  border-radius: 10px;
+  width: 12rem;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 3px rgb(45, 45, 45);
+  list-style: none;
+}
+
+.outline-button:hover {
+  background-color: #02cfda;
+  cursor: pointer;
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+.line-button {
+  margin-top: 1rem;
+  padding: 8px 12px;
+  color: #324b4c;
+  background-color: #324b4c;
+  border-radius: 10px;
+  width: 12rem;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 3px rgb(45, 45, 45);
+  color: white;
+}
+
+.line-button:hover {
+  background-color: #5a6d6d;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* ? end of Section 2 */
+
+/* ? start of Section 3 */
+.home-section3 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-section3-title {
+  padding-top: 2rem;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 2.5rem;
+}
+
+.institution-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.institution-image-card {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.home-section3-grid {
+  width: 80%;
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
+
+.institution-footer-card {
+  background-color: rgba(45, 45, 45, 0.6);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  font-family: Poppins;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+.institution-footer-card:hover {
+  height: 100%;
+}
+
+.institution-footer-card-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding-bottom: 0.75rem;
+}
+
+.institution-footer-card-sub-title {
+  color: rgb(203, 203, 203);
+  font-size: 0.9rem;
+  font-weight: 200;
+}

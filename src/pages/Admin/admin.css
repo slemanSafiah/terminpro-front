@@ -1,0 +1,227 @@
+.tabs-title {
+  font-weight: 600;
+  font-family: Poppins;
+  padding: 50% 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  font-size: 2em;
+  font-weight: 500;
+  font-family: Poppins;
+  margin-bottom: 1em;
+  color: rgb(206, 57, 174);
+  text-align: center;
+  margin-top: 1em;
+}
+
+.category-container {
+  width: 90%;
+  height: 90%;
+  border: 1px solid rgba(0, 0, 0, 0.219);
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.096);
+  transition: 300ms ease-in-out;
+  position: relative;
+}
+
+.category-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.363);
+}
+
+.category-title {
+  font-family: Poppins;
+  font-size: 1.6rem;
+  padding: 20px;
+  width: 90%;
+}
+
+.category-subtitle {
+  font-family: Poppins;
+  font-size: 1em;
+  width: 90%;
+  color: rgb(73, 73, 73);
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+
+.category-option {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
+
+.category-add {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all;
+}
+
+.category-table {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(134, 134, 134, 0.281);
+}
+
+.category-record {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em 0em;
+  border-bottom: 1px solid rgba(134, 134, 134, 0.281);
+}
+
+.category-table > div {
+  color: rgba(44, 44, 44, 0.664);
+  font-size: 1.2rem;
+  font-family: Poppins;
+  flex: 1;
+  text-align: center;
+}
+
+.category-record > div {
+  color: rgba(44, 44, 44, 0.815);
+  font-size: 1.1rem;
+  font-family: Poppins;
+  flex: 1;
+  text-align: center;
+}
+
+#Add {
+  background-color: white;
+  padding: 4px;
+  border-radius: 50%;
+  transition: 300ms ease-in-out;
+  font-size: 70px;
+}
+
+#Add:hover {
+  background-color: rgb(35, 129, 35);
+  color: white;
+  animation-name: loop;
+  animation-duration: 2000ms;
+}
+
+#Add-list {
+  margin-left: 50%;
+  border-radius: 50%;
+  transition: 300ms ease-in-out;
+  margin-top: 1em;
+}
+
+#Add-list:hover {
+  background-color: rgb(35, 129, 35);
+  color: white;
+  animation-name: loop;
+  animation-duration: 2000ms;
+}
+
+.plans-swiper-container {
+  width: 1000px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan-card {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: rgb(56, 133, 56);
+  border: 1px solid rgba(128, 128, 128, 0.329);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.267);
+}
+
+.plan-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan-content > div {
+  font-size: 1.2em;
+  font-family: Poppins;
+  font-weight: 400;
+  margin: 20px 0px;
+}
+
+.plan-card-select {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 175px;
+  height: 200px;
+  background-color: rgb(219, 219, 219);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex;
+  flex-direction: column;
+  color: rgb(108, 190, 108);
+  border: 1px solid rgba(128, 128, 128, 0.116);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.123);
+  transition: 0.4s ease-in-out;
+}
+
+.plan-card-select:hover {
+  background-color: white;
+}
+
+.plan-content-select {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plan-content-select > div {
+  font-size: 1em;
+  font-family: Poppins;
+  font-weight: 300;
+  margin: 8px 0px;
+}
+
+@keyframes loop {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(359deg);
+  }
+}
+
+.logout-tab {
+  padding: 50% 100%;
+  background: rgb(122, 122, 122);
+  transition: 300ms ease-in-out;
+}
+
+.logout-tab:hover {
+  background: rgb(255, 69, 69);
+  color: white;
+}
+
+.statistics {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.statistics-type {
+  font-size: 1.5rem;
+  text-align: left;
+  /* color: rgb(206, 57, 174); */
+}
