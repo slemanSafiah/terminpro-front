@@ -252,15 +252,26 @@ export default function InstitutionComp() {
           </div>
         </div>
         <div className="institution-section1-slider">
-          <Carousel autoplay>
-            {profile?.gallery?.map((img) => {
-              return (
-                <div className="institution-section1-slider-slide">
-                  <img className="institution-img" src={img} alt="salon" />
-                </div>
-              );
-            })}
-          </Carousel>
+          {profile?.gallery?.length > 0 ? (
+            <Carousel autoplay>
+              {profile?.gallery?.map((img) => {
+                return (
+                  <div className="institution-section1-slider-slide">
+                    <img className="institution-img" src={img} alt="salon" />
+                  </div>
+                );
+              })}
+            </Carousel>
+          ) : (
+            <Empty
+              description="No image for this institution"
+              style={{
+                fontSize: "1.5rem",
+                fontFamily: "Poppins",
+                color: "gray",
+              }}
+            />
+          )}
         </div>
       </div>
       <div className="institution-section2">{profile.description}</div>
@@ -463,7 +474,13 @@ function Services({ services }) {
   return (
     <>
       {services?.length === 0 ? (
-        <Empty />
+        <Empty
+          style={{
+            padding: "16px 0",
+            fontFamily: "Poppins",
+            color: "gray",
+          }}
+        />
       ) : (
         <div>
           {services?.map((ser) => (

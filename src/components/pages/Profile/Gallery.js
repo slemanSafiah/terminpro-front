@@ -32,7 +32,13 @@ export default function Gallery({ images, userId }) {
   return (
     <>
       {!imgs || imgs?.length === 0 ? (
-        <Empty />
+        <Empty
+          style={{
+            color: "gray",
+            fontFamily: "Poppins",
+            margin: "16px 0px",
+          }}
+        />
       ) : (
         <ImageList
           sx={{

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Stepper,
   Box,
@@ -72,7 +72,7 @@ const yupSchemaSec2 = yup.object({
 });
 
 const yupSchemaSec3 = yup.object({
-  paypal: yup.string().min(12).required(),
+  paypal: yup.string().email().required(),
   institutionName: yup.string().min(3).required(),
   category: yup.string().required(),
   location: yup.string().min(5).required(),
@@ -80,10 +80,18 @@ const yupSchemaSec3 = yup.object({
 });
 
 const yupSchemaSec3_1 = yup.object({
-  paypal: yup.string().min(12).required(),
+  paypal: yup.string().email().required(),
 });
 
 export default function Signup() {
+  const [categories, setCategories] = useState([]);
+  const [activeStep, setActiveStep] = useState(0);
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+  const navigate = useNavigate();
+
   const [currentUser, setCurrentUser] = useAtom(userAtom);
   const [personalInfo, setPersonalInfo] = useAtom(
     registerFormAtom.personalInfoAtmo
@@ -120,12 +128,6 @@ export default function Signup() {
     resolver: yupResolver(
       personalInfo.type === "customer" ? yupSchemaSec3_1 : yupSchemaSec3
     ),
-  });
-  const navigate = useNavigate();
-  const [activeStep, setActiveStep] = useState(0);
-  const [values, setValues] = useState({
-    password: "",
-    showPassword: false,
   });
 
   const handleChangePassword = (prop) => (event) => {
@@ -170,12 +172,11 @@ export default function Signup() {
 
   function OnSubmit3(formData) {
     setInstiutionInfo(formData);
-    console.log({ ...personalInfo, ...password, ...formData });
-    //make API call to save the data to DB
+
     axios({
       method: "POST",
       url: "http://localhost:5000/api/user/signup",
-      data: { ...personalInfo, ...password, ...formData },
+      data: { ...personalInfo, ...password, ...formData, category: category },
     })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
@@ -195,6 +196,17 @@ export default function Signup() {
         alert(err);
       });
   }
+
+  useEffect(() => {
+    axios({
+      url: "http://localhost:5000/api/admin/category",
+      method: "GET",
+    }).then((res) => {
+      setCategories((prev) => {
+        return res.data.data.map((cat) => cat.name);
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -584,7 +596,6 @@ export default function Signup() {
                               render={({ field }) => {
                                 return (
                                   <FormControl
-                                    {...field}
                                     sx={{
                                       width: "38%",
                                       mb: 2,
@@ -594,6 +605,7 @@ export default function Signup() {
                                     }}
                                   >
                                     <Select
+                                      {...field}
                                       labelId="demo-simple-select-label"
                                       id="demo-simple-select"
                                       value={category}
@@ -601,16 +613,16 @@ export default function Signup() {
                                       size="small"
                                       placeholder="Category"
                                       onChange={handleChange}
+                                      defaultValue="Hair Cut"
                                     >
-                                      <MenuItem selected value="Hair Cut">
-                                        Hair Cut
-                                      </MenuItem>
-                                      <MenuItem value="Skin Care">
-                                        Skin Care
-                                      </MenuItem>
-                                      <MenuItem value="Body Care">
-                                        Body Care
-                                      </MenuItem>
+                                      {categories.map((cat, i) => (
+                                        <MenuItem
+                                          selected={i === 0}
+                                          value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
                                     </Select>
                                   </FormControl>
                                 );
@@ -686,9 +698,6 @@ export default function Signup() {
                           variant="contained"
                           sx={{ mt: 1, mr: 1 }}
                           type="submit"
-                          onClick={() => {
-                            console.log(errors3);
-                          }}
                         >
                           Finish
                         </Button>

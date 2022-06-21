@@ -11,6 +11,9 @@ export default function SubscriptionStatus({ end, id }) {
     return (
       <div className="noti-subs error">
         your Account is suspended until you Subscribe again
+        <Link to={`/institution/${id}`}>
+          <div className="fast-access">go to institution page</div>
+        </Link>
       </div>
     );
   }

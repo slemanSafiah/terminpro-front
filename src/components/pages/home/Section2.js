@@ -45,7 +45,6 @@ export default function Section2() {
           })}
         </Swiper>
         <div className="section2-buttons">
-          <div className="outline-button">See All Categories</div>
           <Link to="/institutions">
             <div className="line-button">Discover Institutions</div>
           </Link>

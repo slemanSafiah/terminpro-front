@@ -14,12 +14,11 @@ import Rating from "@mui/material/Rating";
 import { Empty } from "antd";
 import axios from "axios";
 
-const Categories = ["Hair Cut", "Health Care", "Beauty Care"];
-
 export default function InstitutionsComp() {
   const [category, setCategory] = useState(null);
   const [insts, setInsts] = useState([]);
   const [page, setPage] = React.useState(0);
+  const [categories, setCategories] = useState([]);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
@@ -31,6 +30,17 @@ export default function InstitutionsComp() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  useEffect(() => {
+    axios({
+      url: "http://localhost:5000/api/admin/category",
+      method: "GET",
+    }).then((res) => {
+      setCategories((prev) => {
+        return res.data.data.map((cat) => cat.name);
+      });
+    });
+  }, []);
 
   useEffect(() => {
     axios({
@@ -47,13 +57,13 @@ export default function InstitutionsComp() {
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        options={Categories}
+        options={categories}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Catergory" />}
         value={category}
         onChange={(e, nv) => setCategory(nv)}
       />
-      {insts ? (
+      {insts?.length > 0 ? (
         <TableComp
           insts={insts}
           page={page}
@@ -65,7 +75,10 @@ export default function InstitutionsComp() {
         <Empty
           style={{
             padding: "5em",
+            fontFamily: "Poppins",
+            color: "gray",
           }}
+          description={"Select Category Please"}
         />
       )}
     </div>
@@ -90,11 +103,15 @@ function TableComp({
                 return (
                   <TableRow>
                     <TableCell sx={{ width: "40%" }}>
-                      <img
-                        src={inst.img}
-                        alt="salon"
-                        className="inst-table-img"
-                      />
+                      {inst.img ? (
+                        <img
+                          src={inst?.img}
+                          alt="salon"
+                          className="inst-table-img"
+                        />
+                      ) : (
+                        <Empty description="" />
+                      )}
                     </TableCell>
                     <TableCell>
                       <div className="inst-table-content">

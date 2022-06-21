@@ -104,7 +104,7 @@
   font-family: Poppins;
   background: url("../../public/assets/home/salons/section2.jpg");
   background-size: cover;
-  background-blend-mode: darken;
+  background-blend-mode: saturation;
   background-color: rgb(45, 45, 45, 0.05);
 }
 
@@ -168,7 +168,7 @@
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 3em;
 }
 
@@ -277,4 +277,6 @@
   color: rgb(203, 203, 203);
   font-size: 0.9rem;
   font-weight: 200;
+  width: 90%;
+  overflow: hidden;
 }

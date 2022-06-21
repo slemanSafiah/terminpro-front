@@ -146,10 +146,12 @@
 }
 
 .institution-section1-card-title {
-  padding-left: 30px;
-
+  margin-left: 30px;
+  width: 80%;
+  height: auto;
   font-size: 3rem;
   line-height: 2.8rem;
+  overflow-wrap: break-word;
 }
 
 .institution-section1-card-location {

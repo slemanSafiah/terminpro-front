@@ -5,6 +5,7 @@ import { Button, FormControl, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import emailjs from "@emailjs/browser";
 
 import "./contact.css";
 
@@ -35,8 +36,37 @@ export default function Contact() {
   });
 
   function onSubmit(formData) {
-    console.log(formData);
-    //? send Email logic
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute("6LdjnIkgAAAAAOBJX4J2k-Ir3YPDu_Of32E7AT45", {
+          action: "submit",
+        })
+        .then(() => {
+          emailjs
+            .send(
+              "service_xeju0rk",
+              "template_p2ssu4q",
+              {
+                Name: formData.name,
+                Email: formData.email,
+                Number: formData.mobile,
+                Message: formData.message,
+              },
+              "user_qCv6fHInwGWyS1oSahpy9"
+            )
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+              },
+              function (error) {
+                console.log("FAILED...", error);
+              }
+            );
+        })
+        .catch((err) => {
+          console.log("Error in Recaptcha");
+        });
+    });
   }
 
   return (

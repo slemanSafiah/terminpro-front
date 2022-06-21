@@ -234,6 +234,8 @@ export default function ProfileComp() {
                 description="add your image"
                 style={{
                   marginTop: "2em",
+                  fontFamily: "Poppins",
+                  color: "gray",
                 }}
               />
             </div>
@@ -1243,13 +1245,31 @@ function AppsTable({ profile }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>
+            <TableCell
+              style={{
+                fontFamily: "Poppins",
+              }}
+            >
               {profile.type === "customer"
                 ? "Institution Name"
                 : "Customer Name"}
             </TableCell>
-            <TableCell align="center">Date</TableCell>
-            <TableCell align="right">Price $ </TableCell>
+            <TableCell
+              align="center"
+              style={{
+                fontFamily: "Poppins",
+              }}
+            >
+              Date
+            </TableCell>
+            <TableCell
+              align="center"
+              style={{
+                fontFamily: "Poppins",
+              }}
+            >
+              Price ${" "}
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -1259,15 +1279,29 @@ function AppsTable({ profile }) {
                 key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <TableCell
+                  style={{
+                    fontFamily: "Poppins",
+                  }}
+                  component="th"
+                  scope="row"
+                >
                   {profile.type === "customer"
                     ? row.institution.institutionName
                     : `${row.user.firstName} ${row.user.lastName}`}
                 </TableCell>
-                <TableCell align="center">{`${row.date} -${
-                  " " + row.history
-                }`}</TableCell>
-                <TableCell align="right">
+                <TableCell
+                  style={{
+                    fontFamily: "Poppins",
+                  }}
+                  align="center"
+                >{`${row.date} -${" " + row.history}`}</TableCell>
+                <TableCell
+                  style={{
+                    fontFamily: "Poppins",
+                  }}
+                  align="center"
+                >
                   {row.service.reduce((acc, curr) => acc + curr.price, 0)}
                 </TableCell>
               </TableRow>

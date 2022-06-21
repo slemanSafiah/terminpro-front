@@ -13,7 +13,13 @@ export default function Services({
   return (
     <>
       {services.length === 0 ? (
-        <Empty />
+        <Empty
+          style={{
+            color: "gray",
+            fontFamily: "Poppins",
+            margin: "16px 0px",
+          }}
+        />
       ) : (
         <div className="profile-services">
           {services.map((ser, index) => {

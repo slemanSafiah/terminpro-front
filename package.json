@@ -5,6 +5,7 @@
   "dependencies": {
     "@cloudinary/react": "^1.4.1",
     "@cloudinary/url-gen": "^1.8.0",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@hookform/resolvers": "^2.8.10",
@@ -22,6 +23,7 @@
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
     "cloudinary-react": "^1.7.2",
+    "emailjs": "^4.0.0",
     "hammerjs": "^2.0.8",
     "jotai": "^1.7.0",
     "prop-types": "^15.8.1",
