@@ -17,7 +17,7 @@ export default function History() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/user",
+      url: "https://terminpro2022.herokuapp.com/api/user",
       method: "GET",
     }).then((res) => {
       setCounts(() => [
@@ -37,7 +37,7 @@ export default function History() {
       );
 
     axios({
-      url: `http://localhost:5000/api/payment/subscription?user=${token.id}`,
+      url: `https://terminpro2022.herokuapp.com/api/payment/subscription?user=${token.id}`,
       method: "GET",
     }).then((res) => {
       setSubs(res.data);

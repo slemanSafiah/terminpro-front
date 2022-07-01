@@ -5,7 +5,7 @@ import axios from "axios";
 export default function Plan({ plan, type, setPlans, closeModal, userId }) {
   function handleDelete() {
     axios({
-      url: `http://localhost:5000/api/plan/${plan._id}`,
+      url: `https://terminpro2022.herokuapp.com/api/plan/${plan._id}`,
       method: "DELETE",
     }).then(() => {
       setPlans((prev) => {
@@ -18,7 +18,7 @@ export default function Plan({ plan, type, setPlans, closeModal, userId }) {
 
   function selectSub() {
     axios({
-      url: `http://localhost:5000/api/payment/subscription/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/payment/subscription/${userId}`,
       method: "POST",
       data: {
         id: plan._id,

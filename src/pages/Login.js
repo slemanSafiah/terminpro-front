@@ -62,9 +62,12 @@ export default function Login() {
 
   function onSubmit(formData) {
     axios({
-      url: "http://localhost:5000/api/user/login",
+      url: "https://terminpro2022.herokuapp.com/api/user/login",
       method: "POST",
       data: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);

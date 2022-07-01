@@ -15,7 +15,7 @@ export default function Gallery({ images, userId }) {
 
   function handleDelete(item) {
     axios({
-      url: `http://localhost:5000/api/user/${userId}/gallery`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${userId}/gallery`,
       method: "DELETE",
       data: {
         img: item,

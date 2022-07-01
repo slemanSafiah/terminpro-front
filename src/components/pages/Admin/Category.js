@@ -22,7 +22,7 @@ export default function Category({ setCategories, category, grid }) {
 
   function handleInput() {
     axios({
-      url: "http://localhost:5000/api/admin/category",
+      url: "https://terminpro2022.herokuapp.com/api/admin/category",
       method: "POST",
       data: {
         name: inputRef.current.value,
@@ -35,7 +35,7 @@ export default function Category({ setCategories, category, grid }) {
 
   function handleDelete() {
     axios({
-      url: `http://localhost:5000/api/admin/category/${category._id}`,
+      url: `https://terminpro2022.herokuapp.com/api/admin/category/${category._id}`,
       method: "DELETE",
     }).then(() => {
       setCategories((prev) => {

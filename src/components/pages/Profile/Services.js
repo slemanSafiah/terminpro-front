@@ -124,7 +124,7 @@ function Service({ ser, setType, openModal, key, setServices, setModified }) {
           onClick={(e) => {
             e.preventDefault();
             axios({
-              url: `http://localhost:5000/api/service/${ser._id}`,
+              url: `https://terminpro2022.herokuapp.com/api/service/${ser._id}`,
               method: "DELETE",
             }).then(() => {
               setServices((prev) => {
