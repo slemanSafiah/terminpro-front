@@ -9,7 +9,7 @@ export default function Section3() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/user/institutions",
+      url: "https://terminpro2022.herokuapp.com/api/user/institutions",
       method: "GET",
     }).then((res) => {
       settInstitution(res.data);

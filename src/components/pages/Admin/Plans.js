@@ -47,7 +47,7 @@ export default function Plans() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/plan",
+      url: "https://terminpro2022.herokuapp.com/api/plan",
       method: "GET",
     }).then((res) => {
       setPlans(res.data);
@@ -79,7 +79,7 @@ export default function Plans() {
 
   function onSubmit(formData) {
     axios({
-      url: "http://localhost:5000/api/plan",
+      url: "https://terminpro2022.herokuapp.com/api/plan",
       method: "POST",
       data: {
         sku: formData.sku,

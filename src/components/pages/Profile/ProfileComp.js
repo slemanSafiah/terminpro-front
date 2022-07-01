@@ -114,7 +114,7 @@ export default function ProfileComp() {
 
     setUserId(token.id);
     axios({
-      url: `http://localhost:5000/api/user/${token.id}`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${token.id}`,
       method: "GET",
     }).then((res) => {
       setProfile(res.data.data);
@@ -133,7 +133,7 @@ export default function ProfileComp() {
     }).then((res) => {
       //res.data.url
       axios({
-        url: `http://localhost:5000/api/user/${userId}/photo`,
+        url: `https://terminpro2022.herokuapp.com/api/user/${userId}/photo`,
         method: "PUT",
         data: {
           img: res.data.url,
@@ -162,7 +162,7 @@ export default function ProfileComp() {
       data: data,
     }).then((res) => {
       axios({
-        url: `http://localhost:5000/api/user/${userId}/gallery`,
+        url: `https://terminpro2022.herokuapp.com/api/user/${userId}/gallery`,
         method: "PUT",
         data: {
           img: res.data.url,
@@ -183,7 +183,7 @@ export default function ProfileComp() {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/service/all/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/service/all/${userId}`,
       method: "GET",
     })
       .then((res) => {
@@ -196,7 +196,7 @@ export default function ProfileComp() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/plan",
+      url: "https://terminpro2022.herokuapp.com/api/plan",
       method: "GET",
     }).then((res) => {
       setPlans(res.data);
@@ -205,7 +205,7 @@ export default function ProfileComp() {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/payment/checkValidity/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/payment/checkValidity/${userId}`,
       method: "GET",
     })
       .then((res) => {
@@ -509,7 +509,7 @@ export default function ProfileComp() {
 function ChangePassword({ closeModal, userId }) {
   function onSubmit(formData) {
     axios({
-      url: `http://localhost:5000/api/user/${userId}/changePassword`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${userId}/changePassword`,
       method: "PUT",
       data: {
         password: formData.password,
@@ -622,7 +622,7 @@ function ChangePassword({ closeModal, userId }) {
 function ChangePaypal({ closeModal, userId }) {
   function onSubmit(formData) {
     axios({
-      url: `http://localhost:5000/api/user/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${userId}`,
       method: "PUT",
       data: {
         paypal: formData.paypal,
@@ -703,7 +703,7 @@ function ChangePaypal({ closeModal, userId }) {
 function ModifyInformation({ closeModal, userId }) {
   function onSubmit(formData) {
     axios({
-      url: `http://localhost:5000/api/user/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${userId}`,
       method: "PUT",
       data: {
         institutionName: formData.name,
@@ -915,7 +915,7 @@ function AddService({
 
   function onSubmit(formData) {
     axios({
-      url: "http://localhost:5000/api/service",
+      url: "https://terminpro2022.herokuapp.com/api/service",
       method: "POST",
       data: {
         ...formData,
@@ -1091,7 +1091,7 @@ function ModifyService({ closeModal, serviceId, setServices }) {
   const { handleSubmit, control } = useForm();
   function onSubmit(formData) {
     axios({
-      url: `http://localhost:5000/api/service/${serviceId}`,
+      url: `https://terminpro2022.herokuapp.com/api/service/${serviceId}`,
       method: "PUT",
       data: formData,
     }).then((res) => {
@@ -1243,7 +1243,7 @@ function AppsTable({ profile }) {
   useEffect(() => {
     if (Object.keys(profile).length > 0) {
       axios({
-        url: `http://localhost:5000/api/appointment?${
+        url: `https://terminpro2022.herokuapp.com/api/appointment?${
           profile?.type === "customer" ? "user" : "institution"
         }=${profile._id}`,
         method: "GET",

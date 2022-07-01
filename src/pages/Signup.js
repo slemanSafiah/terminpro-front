@@ -175,7 +175,7 @@ export default function Signup() {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/user/signup",
+      url: "https://terminpro2022.herokuapp.com/api/user/signup",
       data: { ...personalInfo, ...password, ...formData, category: category },
     })
       .then((res) => {
@@ -199,7 +199,7 @@ export default function Signup() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/admin/category",
+      url: "https://terminpro2022.herokuapp.com/api/admin/category",
       method: "GET",
     }).then((res) => {
       setCategories((prev) => {

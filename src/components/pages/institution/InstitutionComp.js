@@ -106,7 +106,7 @@ export default function InstitutionComp() {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/user/${id}`,
+      url: `https://terminpro2022.herokuapp.com/api/user/${id}`,
       method: "GET",
     }).then((res) => {
       console.log(id);
@@ -117,7 +117,7 @@ export default function InstitutionComp() {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/service/all/${id}`,
+      url: `https://terminpro2022.herokuapp.com/api/service/all/${id}`,
       method: "GET",
     }).then((res) => {
       setServices(res.data.data);
@@ -189,12 +189,12 @@ export default function InstitutionComp() {
       institution: id,
     };
     axios({
-      url: `http://localhost:5000/api/payment/pay/${userId}`,
+      url: `https://terminpro2022.herokuapp.com/api/payment/pay/${userId}`,
       method: "POST",
       data,
     }).then(async (res) => {
       let pending = await axios({
-        url: "http://localhost:5000/api/appointment",
+        url: "https://terminpro2022.herokuapp.com/api/appointment",
         method: "POST",
         data: {
           date: data.time,

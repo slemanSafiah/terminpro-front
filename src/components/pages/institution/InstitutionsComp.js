@@ -32,7 +32,7 @@ export default function InstitutionsComp() {
 
   useEffect(() => {
     axios({
-      url: "http://localhost:5000/api/admin/category",
+      url: "https://terminpro2022.herokuapp.com/api/admin/category",
       method: "GET",
     }).then((res) => {
       setCategories((prev) => {
@@ -43,7 +43,7 @@ export default function InstitutionsComp() {
 
   useEffect(() => {
     axios({
-      url: `http://localhost:5000/api/user/institutions?cat=${category}`,
+      url: `https://terminpro2022.herokuapp.com/api/user/institutions?cat=${category}`,
       method: "GET",
     }).then((res) => {
       console.log(res.data);
