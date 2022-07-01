@@ -10,7 +10,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import Rating from "@mui/material/Rating";
 import { Empty } from "antd";
 import axios from "axios";
 
@@ -92,17 +91,84 @@ function TableComp({
   changePage,
   changeRowsperPage,
 }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+  if (mediaQuery.matches) {
+    return (
+      <>
+        <TableContainer className="inst-table" component={Paper}>
+          <Table
+            sx={{ minWidth: 300, margin: "0 auto" }}
+            aria-label="simple table"
+          >
+            <TableBody>
+              {insts
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((inst) => {
+                  return (
+                    <>
+                      <TableRow>
+                        {inst.img ? (
+                          <img
+                            src={inst?.img}
+                            alt="salon"
+                            className="inst-table-img"
+                          />
+                        ) : (
+                          <Empty description="" />
+                        )}
+                      </TableRow>
+                      <TableRow>
+                        <div className="inst-table-content">
+                          <div className="inst-table-title">
+                            {inst.institutionName}
+                          </div>
+
+                          <div className="inst-table-location">
+                            {inst.location}
+                          </div>
+                          <Link to={`/institution/${inst._id}`}>
+                            <div className="inst-table-button">More Info</div>
+                          </Link>
+                        </div>
+                      </TableRow>
+                    </>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <div className="inst-table-pagination">
+          <TablePagination
+            sx={{
+              width: "100%",
+            }}
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={insts.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={changePage}
+            onRowsPerPageChange={changeRowsperPage}
+          />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <TableContainer className="inst-table" component={Paper}>
-        <Table sx={{ minWidth: 650, maxWidth: 1200 }} aria-label="simple table">
+        <Table sx={{ minWidth: 600, maxWidth: 1200 }} aria-label="simple table">
           <TableBody>
             {insts
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((inst) => {
                 return (
                   <TableRow>
-                    <TableCell sx={{ width: "40%" }}>
+                    <TableCell
+                      sx={{ width: `${mediaQuery.matches ? "30%" : "40%"}` }}
+                    >
                       {inst.img ? (
                         <img
                           src={inst?.img}
@@ -118,14 +184,7 @@ function TableComp({
                         <div className="inst-table-title">
                           {inst.institutionName}
                         </div>
-                        <div className="inst-table-rate">
-                          <Rating
-                            name="half-rating"
-                            defaultValue={inst.rate}
-                            precision={0.1}
-                            readOnly
-                          />
-                        </div>
+
                         <div className="inst-table-location">
                           {inst.location}
                         </div>

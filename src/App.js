@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import Success from "./pages/Success";
 import Failure from "./pages/Failure";
 import Admin from "./pages/Admin/Admin";
+import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 import { Provider } from "jotai";
 import "./styles.css";
@@ -72,6 +73,7 @@ export default function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/admin" element={<Admin />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </Provider>

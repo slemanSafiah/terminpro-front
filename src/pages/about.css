@@ -21,3 +21,29 @@
   font-family: Poppins;
   padding-top: 2em;
 }
+
+@media only screen and (max-width: 600px) {
+  .about-background {
+    top: 75px;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+  }
+
+  .about-content {
+    width: 80%;
+    padding: 1em 1em 4em 1em;
+    font-size: 0.9rem;
+    font-family: Poppins;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-title {
+    margin-top: -150px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Poppins;
+  }
+}

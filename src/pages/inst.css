@@ -345,3 +345,339 @@
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.158);
   background-color: #868686;
 }
+
+@media only screen and (max-width: 600px) {
+  .insts-container {
+    width: 100%;
+    height: auto;
+    margin-top: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .inst-table {
+    margin-top: 2em;
+  }
+
+  .inst-table-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 3px 5px rgb(53, 53, 53, 0.5);
+    margin-left: 0em;
+  }
+
+  .inst-table-content {
+    padding-left: 10%;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    text-align: left;
+  }
+
+  .inst-table-title {
+    padding: 16px 0 8px 0;
+    font-size: 1.2rem;
+    font-family: Poppins;
+    font-weight: 400;
+    color: rgb(63, 63, 63);
+  }
+
+  .inst-table-location {
+    margin-top: -8px;
+    font-family: Poppins;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgb(53, 53, 53);
+  }
+
+  .inst-table-button {
+    background: rgb(39, 161, 39);
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    padding: 0.5em 0.8em;
+    font-size: 0.9rem;
+    font-family: Poppins;
+    font-weight: 300;
+    width: fit-content;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0px 2px 2px 2px rgba(22, 22, 22, 0.253);
+    cursor: pointer;
+  }
+
+  .MuiTablePagination-selectLabel {
+    font-weight: 300;
+    font-family: Poppins;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  .MuiTablePagination-displayedRows {
+    font-weight: 300;
+    font-family: Poppins;
+    font-size: 1.1rem;
+  }
+  .MuiTablePagination-select {
+    font-weight: 300;
+    font-family: Poppins;
+    font-size: 1.1rem;
+  }
+
+  /* ? start of Institution Page */
+
+  .institution-container {
+    margin-top: 125px;
+  }
+
+  .institution-section1 {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .institution-section1-card {
+    margin-top: 16px;
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgb(238, 245, 247);
+    box-shadow: 0 0 5px rgb(126, 195, 216);
+    height: 325px;
+    font-family: Poppins;
+  }
+
+  .institution-section1-slider {
+    width: 100%;
+  }
+
+  .institution-section1-slider-slide {
+    object-fit: cover;
+  }
+
+  .institution-img {
+    width: 100%;
+    height: 400px;
+  }
+
+  .institution-section1-card-category {
+    font-size: 1.2rem;
+    color: rgb(82, 82, 82);
+  }
+
+  .institution-section1-card-title {
+    text-align: center;
+    margin-left: 30px;
+    width: 80%;
+    height: auto;
+    font-size: 2.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .institution-section1-card-location {
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(82, 82, 82);
+    margin-bottom: 0px;
+  }
+
+  .institution-section1-card-booking {
+    font-size: 1.5em;
+    background-color: rgb(53, 53, 53);
+    color: white;
+    padding: 0.5em 0.7em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  .institution-section1-card-booking:hover {
+    background-color: rgb(22, 22, 22);
+  }
+
+  .institution-section2 {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 2em 4em;
+    font-family: Poppins;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-container {
+    width: 90%;
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4em;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.48);
+  }
+
+  .services-container-title {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5em;
+  }
+
+  .ac-sum {
+    font-family: Poppins;
+    font-size: 1rem;
+  }
+
+  .ac-det {
+    font-family: Poppins;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35%;
+    font-size: 1.15rem;
+  }
+
+  /* ? Modal Component */
+
+  .modal {
+    height: auto;
+    width: 100%;
+    position: relative;
+  }
+
+  .modal-title {
+    text-align: center;
+    padding-bottom: 0.5em;
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .modal-section-1 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+  }
+
+  .modal-services {
+    width: 90%;
+    height: 200px;
+    background-color: white;
+    overflow-y: scroll;
+    border: 1px solid rgba(0, 0, 0, 0.116);
+    padding: 0.5rem 0.5rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.158);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .modal-total {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    font-size: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.116);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.158);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    margin: 20px auto 0 auto;
+  }
+
+  .modal-total div:first-child {
+    padding: 8px 0 4px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .modal-total-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    font-weight: 500;
+    padding: 0.2rem 0rem;
+  }
+
+  .modal-total-stat > span {
+    font-weight: 500;
+  }
+
+  .modal-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0.5em;
+  }
+
+  .modal-service-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .modal-service-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .modal-total-stat-button {
+    background-color: var(--SecondaryColor);
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0rem;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-family: Poppins;
+    font-weight: 500;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+  }
+
+  .modal-total-stat-button:hover {
+    cursor: pointer;
+    background-color: var(--SecondaryColorShadow);
+  }
+
+  .modal-section-2 {
+    padding: 0;
+    margin: 16px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.171);
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.158);
+    background-color: #868686;
+  }
+}

@@ -41,29 +41,62 @@ export default function Services({
 }
 
 function Service({ ser, setType, openModal, key, setServices, setModified }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
   return (
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: "white",
-        padding: "1em",
-        margin: "1em 0em",
-      }}
+      style={
+        mediaQuery.matches
+          ? {
+              display: "flex",
+              height: "auto",
+              alignItems: "center",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              backgroundColor: "white",
+              padding: "1em",
+              margin: "1em 0em",
+            }
+          : {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              backgroundColor: "white",
+              padding: "1em",
+              margin: "1em 0em",
+            }
+      }
     >
       <div className="profile-service-details">
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={
+            mediaQuery.matches
+              ? {
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }
+              : {
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }
+          }
         >
-          <div>
+          <div
+            style={
+              mediaQuery.matches
+                ? {
+                    width: "70%",
+                    paddingBottom: "8px",
+                  }
+                : {}
+            }
+          >
             <div
               style={{
-                fontSize: "1.3rem",
+                fontSize: "1rem",
               }}
             >
               {ser.name}

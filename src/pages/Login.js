@@ -19,6 +19,7 @@ import * as yup from "yup";
 import { useAtom } from "jotai";
 import userAtom from "../components/atoms/userAtom";
 import axios from "axios";
+import { Buffer } from "buffer";
 import "./login.css";
 
 const yupSchema = yup.object({
@@ -46,31 +47,38 @@ export default function Login() {
     event.preventDefault();
   };
 
+  if (localStorage.getItem("token")) {
+    let token =
+      localStorage.getItem("token") &&
+      JSON.parse(
+        Buffer.from(localStorage.getItem("token"), "base64")
+          .toString("utf-8")
+          .split("}")[1] + "}"
+      );
+    token.type === "admin"
+      ? navigate("/admin", { replace: true })
+      : navigate("/", { replace: true });
+  }
+
   function onSubmit(formData) {
-    //? Check the data with the API the add the user to the context
-    if (
-      formData.email === "admin@gmail.com" &&
-      formData.password === "password"
-    ) {
-      navigate("/admin");
-    } else {
-      axios({
-        url: "http://localhost:5000/api/user/login",
-        method: "POST",
-        data: formData,
-      }).then((res) => {
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-          setCurrentUser({
-            firstName: res.data.data.firstName,
-            lastName: res.data.data.lastName,
-            type: res.data.data.type,
-            loggedIn: true,
-          });
-          navigate("/");
-        }
-      });
-    }
+    axios({
+      url: "http://localhost:5000/api/user/login",
+      method: "POST",
+      data: formData,
+    }).then((res) => {
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        setCurrentUser({
+          firstName: res.data.data.firstName,
+          lastName: res.data.data.lastName,
+          type: res.data.data.type,
+          loggedIn: true,
+        });
+        res.data.data.type === "admin"
+          ? navigate("/admin", { replace: true })
+          : navigate("/", { replace: true });
+      }
+    });
   }
 
   return (

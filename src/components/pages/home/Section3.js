@@ -5,6 +5,7 @@ import { Empty } from "antd";
 
 export default function Section3() {
   const [institutions, settInstitution] = React.useState([]);
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
 
   useEffect(() => {
     axios({
@@ -22,7 +23,7 @@ export default function Section3() {
         <Grid container spacing={4}>
           {institutions.map((inst) => {
             return (
-              <Grid item xs={6}>
+              <Grid item xs={mediaQuery.matches ? 12 : 6}>
                 <InstitutionCard
                   image={inst.img}
                   name={inst.institutionName}

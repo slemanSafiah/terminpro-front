@@ -6,39 +6,71 @@ import { useNavigate } from "react-router-dom";
 
 export default function Success() {
   const navigate = useNavigate();
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
 
   return (
     <div>
       <Header />
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-        }}
+        style={
+          mediaQuery.matches
+            ? {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                flexDirection: "column",
+              }
+            : {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+              }
+        }
       >
         <div
-          style={{
-            width: "50%",
-          }}
+          style={
+            mediaQuery.matches
+              ? {
+                  width: "auto",
+                }
+              : {
+                  width: "50%",
+                }
+          }
         >
           <img
             src="assets/success.png"
             alt="payment done"
-            height="500px"
-            style={{
-              marginTop: "4em",
-              objectFit: "cover",
-            }}
+            height={mediaQuery.matches ? "250px" : "500px"}
+            style={
+              mediaQuery.matches
+                ? {
+                    marginTop: "150px",
+                  }
+                : {
+                    marginTop: "4em",
+                    objectFit: "cover",
+                  }
+            }
           />
         </div>
         <div
-          style={{
-            width: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          style={
+            mediaQuery.matches
+              ? {
+                  height: "100px",
+                  width: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }
+              : {
+                  width: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }
+          }
         >
           <Button
             variant="contained"

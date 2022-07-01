@@ -36,3 +36,46 @@ form {
   top: 20%;
   z-index: 111;
 }
+
+@media only screen and (max-width: 600px) {
+  .signup-container {
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stepper-container {
+    margin-top: 150px;
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px rgba(56, 56, 56, 0.171);
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .signup-background {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    object-fit: cover;
+    z-index: -1;
+    display: none;
+  }
+
+  .Signup-title {
+    position: absolute;
+    font-size: 7em;
+    font-family: "Dancing Script";
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    z-index: 111;
+    display: none;
+  }
+}

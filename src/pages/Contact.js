@@ -35,6 +35,8 @@ export default function Contact() {
     resolver: yupResolver(schema),
   });
 
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
   function onSubmit(formData) {
     window.grecaptcha.ready(() => {
       window.grecaptcha
@@ -180,11 +182,15 @@ export default function Contact() {
             variant="contained"
             color="success"
             size="large"
-            sx={{
-              ml: "100%",
-              mt: 1,
-              transform: "translateX(-100%)",
-            }}
+            sx={
+              mediaQuery.matches
+                ? {}
+                : {
+                    ml: "100%",
+                    mt: 1,
+                    transform: "translateX(-100%)",
+                  }
+            }
           >
             Send
           </Button>

@@ -73,6 +73,8 @@ const style = {
 };
 
 export default function ProfileComp() {
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
   const [validity, setValidity] = useAtom(validaityAtom);
 
   const [services, setServices] = useState([]);
@@ -284,13 +286,13 @@ export default function ProfileComp() {
             setType("password");
             handleOpen();
           }}
-          sx={{ m: 2 }}
+          sx={mediaQuery.matches ? { m: 1, width: "75%" } : { m: 2 }}
           disabled={profile.type === "institution" && !validity}
         >
           Change Password
         </Button>
         <Button
-          sx={{ m: 2 }}
+          sx={mediaQuery.matches ? { m: 1, width: "75%" } : { m: 2 }}
           endIcon={<Payment />}
           variant="contained"
           color="secondary"
@@ -305,7 +307,7 @@ export default function ProfileComp() {
         </Button>
         {profile.type === "institution" && (
           <Button
-            sx={{ m: 2 }}
+            sx={mediaQuery.matches ? { m: 1, width: "75%" } : { m: 2 }}
             endIcon={<Person />}
             variant="contained"
             color="secondary"
@@ -321,7 +323,7 @@ export default function ProfileComp() {
         )}
         {profile.type === "institution" && (
           <Button
-            sx={{ m: 2 }}
+            sx={mediaQuery.matches ? { m: 1, width: "75%" } : { m: 2 }}
             endIcon={<SubscriptionsRounded />}
             variant="contained"
             color="secondary"
@@ -340,11 +342,19 @@ export default function ProfileComp() {
         <>
           <div
             className="profile-sec-header"
-            style={{
-              fontSize: "1.4rem",
-              fontFamily: "Poppins",
-              margin: "1em 0em",
-            }}
+            style={
+              mediaQuery.matches
+                ? {
+                    fontSize: "1rem",
+                    fontFamily: "Poppins",
+                    margin: "1em 0em",
+                  }
+                : {
+                    fontSize: "1.4rem",
+                    fontFamily: "Poppins",
+                    margin: "1em 0em",
+                  }
+            }
           >
             Images Gallery
             <div>
@@ -386,11 +396,19 @@ export default function ProfileComp() {
         <>
           <div className="profile-sec-header">
             <div
-              style={{
-                fontSize: "1.4rem",
-                fontFamily: "Poppins",
-                margin: "1em 0em",
-              }}
+              style={
+                mediaQuery.matches
+                  ? {
+                      fontSize: "1rem",
+                      fontFamily: "Poppins",
+                      margin: "1em 0em",
+                    }
+                  : {
+                      fontSize: "1.4rem",
+                      fontFamily: "Poppins",
+                      margin: "1em 0em",
+                    }
+              }
             >
               Available Services
             </div>

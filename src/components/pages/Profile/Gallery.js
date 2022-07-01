@@ -28,6 +28,7 @@ export default function Gallery({ images, userId }) {
       });
     });
   }
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
 
   return (
     <>
@@ -46,7 +47,7 @@ export default function Gallery({ images, userId }) {
             height: 350,
             backgroundColor: "rgb(230,230,230)",
           }}
-          cols={3}
+          cols={mediaQuery.matches ? 2 : 3}
           rowHeight={170}
         >
           {imgs?.map((item) => (

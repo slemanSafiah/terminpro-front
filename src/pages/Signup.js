@@ -207,20 +207,34 @@ export default function Signup() {
       });
     });
   }, []);
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
 
   return (
     <>
       <Header />
       <div className="signup-container">
         <div
-          style={{
-            width: "50%",
-            height: "auto",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
+          style={
+            mediaQuery.matches
+              ? {
+                  width: "90%",
+                  height: "auto",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                }
+              : {
+                  width: "50%",
+                  height: "auto",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }
+          }
         >
           <div className="stepper-container">
             <Stepper activeStep={activeStep} orientation="vertical">

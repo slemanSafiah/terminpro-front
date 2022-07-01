@@ -5,7 +5,7 @@ import { Tabs, Tab, Box } from "@mui/material";
 import Categories from "../../components/pages/Admin/Categories";
 import Plans from "../../components/pages/Admin/Plans";
 import History from "../../components/pages/Admin/History";
-
+import { Buffer } from "buffer";
 import { useNavigate } from "react-router-dom";
 
 import "./admin.css";
@@ -43,6 +43,18 @@ export default function Admin() {
   };
 
   const navigate = useNavigate();
+
+  let token =
+    localStorage.getItem("token") &&
+    JSON.parse(
+      Buffer.from(localStorage.getItem("token"), "base64")
+        .toString("utf-8")
+        .split("}")[1] + "}"
+    );
+  console.log(token);
+  if (token.type !== "admin") {
+    window.location.replace("/not-found");
+  }
 
   return (
     <Box

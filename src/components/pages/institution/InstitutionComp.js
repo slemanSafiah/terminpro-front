@@ -84,7 +84,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "70%",
+  width: "90%",
   bgcolor: "background.paper",
   boxShadow: "0px 0px 3px 2px rgba(100,100,100,0.5)",
   p: "32px 0 0 0",
@@ -221,7 +221,7 @@ export default function InstitutionComp() {
   };
 
   const { handleSubmit, control } = useForm();
-
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
   return (
     <div className="institution-container">
       <div className="institution-section1">
@@ -394,7 +394,9 @@ export default function InstitutionComp() {
                     control={control}
                     render={({ field }) => {
                       return (
-                        <FormControl>
+                        <FormControl
+                          sx={mediaQuery.matches ? { width: "90%" } : {}}
+                        >
                           <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DesktopDatePicker
                               label="Date"
@@ -413,7 +415,11 @@ export default function InstitutionComp() {
 
                   <FormControl
                     size="medium"
-                    sx={{ width: "25%", marginLeft: "2em" }}
+                    sx={
+                      mediaQuery.matches
+                        ? { width: "90%", margin: "10px auto 10px auto" }
+                        : { width: "25%", marginLeft: "2em" }
+                    }
                   >
                     <InputLabel id="demo-simple-select-label">Time</InputLabel>
                     <Select
