@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Institution from "./pages/Institution";
@@ -15,8 +15,17 @@ import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/shared/ProtectedRoute";
 import { Provider } from "jotai";
 import "./styles.css";
+import { HashLoader } from "react-spinners";
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
+
   useEffect(() => {
     const loadScriptByURL = (id, url, callback) => {
       const isScriptExist = document.getElementById(id);
@@ -44,6 +53,23 @@ export default function App() {
       }
     );
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <HashLoader
+          color="#1088e9"
+          size={100}
+          style={{
+            position: "absolute",
+            top: "50%",
+            marginLeft: "50%",
+            transform: "translateX(-50%)",
+          }}
+        />
+      </>
+    );
+  }
 
   return (
     <>
