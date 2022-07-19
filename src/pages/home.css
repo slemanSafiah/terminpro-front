@@ -233,6 +233,14 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  box-shadow: 0px 1px 7px rgba(51, 51, 51, 0.5);
+  transition: all ease-in-out 0.3s;
+}
+
+.institution-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 9px rgba(22, 22, 22, 0.9);
+  transform: translateY(-8px);
 }
 
 .institution-image-card {
@@ -279,6 +287,13 @@
   font-weight: 200;
   width: 90%;
   overflow: hidden;
+  height: 0%;
+  transition: all 0.3s ease-in-out;
+}
+
+.institution-footer-card:hover .institution-footer-card-sub-title {
+  height: 150px;
+  display: block;
 }
 
 @media only screen and (max-width: 600px) {

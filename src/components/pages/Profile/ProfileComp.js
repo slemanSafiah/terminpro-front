@@ -60,13 +60,14 @@ const schemaPassword = yup.object({
 const Input = styled("input")({
   display: "none",
 });
+const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "60%",
+  width: mediaQuery ? "80%" : "60%",
   bgcolor: "background.paper",
   boxShadow: "0px 0px 3px 2px rgba(100,100,100,0.5)",
   p: "32px 0 0 0",
@@ -507,6 +508,8 @@ export default function ProfileComp() {
 }
 
 function ChangePassword({ closeModal, userId }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   function onSubmit(formData) {
     axios({
       url: `https://terminpro2022.herokuapp.com/api/user/${userId}/changePassword`,
@@ -536,14 +539,27 @@ function ChangePassword({ closeModal, userId }) {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "70%",
-          margin: "auto",
-        }}
+        style={
+          mediaQuery
+            ? {
+                marginLeft: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexDirection: "column",
+                width: "90%",
+              }
+            : {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "90%",
+                margin: "auto",
+              }
+        }
       >
+        <div className="modal-title">Change Password</div>
         <div
           style={{
             display: "flex",
@@ -560,14 +576,14 @@ function ChangePassword({ closeModal, userId }) {
               return (
                 <FormControl
                   sx={{
-                    width: "100%",
+                    width: mediaQuery ? "100%" : "80%",
                   }}
                   error={errors.password}
                   {...field}
                 >
                   <TextField
                     sx={{
-                      width: "70%",
+                      width: "100%",
                       mb: 2,
                     }}
                     label="Password"
@@ -586,14 +602,14 @@ function ChangePassword({ closeModal, userId }) {
               return (
                 <FormControl
                   sx={{
-                    width: "100%",
+                    width: mediaQuery ? "100%" : "80%",
                   }}
                   error={errors.confirmPassword}
                   {...field}
                 >
                   <TextField
                     sx={{
-                      width: "70%",
+                      width: "100%",
                       mb: 4,
                     }}
                     label="Confirm Password"
@@ -610,8 +626,15 @@ function ChangePassword({ closeModal, userId }) {
             }}
           />
         </div>
-
-        <Button variant="contained" type="submit" size="large">
+        <Button
+          variant="contained"
+          type="submit"
+          size="large"
+          sx={{
+            fontFamily: "Cairo",
+            margin: "0 1em 1em 1em",
+          }}
+        >
           Update
         </Button>
       </form>
@@ -620,6 +643,8 @@ function ChangePassword({ closeModal, userId }) {
 }
 
 function ChangePaypal({ closeModal, userId }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   function onSubmit(formData) {
     axios({
       url: `https://terminpro2022.herokuapp.com/api/user/${userId}`,
@@ -650,14 +675,28 @@ function ChangePaypal({ closeModal, userId }) {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "70%",
-          margin: "auto",
-        }}
+        style={
+          mediaQuery
+            ? {
+                marginLeft: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexDirection: "column",
+                width: "90%",
+              }
+            : {
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "90%",
+                margin: "auto",
+              }
+        }
       >
+        <div className="modal-title">Change Paypal Account</div>
+
         <Controller
           name="paypal"
           control={control}
@@ -665,14 +704,14 @@ function ChangePaypal({ closeModal, userId }) {
             return (
               <FormControl
                 sx={{
-                  width: "100%",
+                  width: mediaQuery ? "100%" : "80%",
                 }}
                 error={errors.confirmPassword}
                 {...field}
               >
                 <TextField
                   sx={{
-                    width: "80%",
+                    width: "100%",
                     mb: 4,
                   }}
                   label="Paypal"
@@ -690,7 +729,8 @@ function ChangePaypal({ closeModal, userId }) {
           type="submit"
           size="large"
           sx={{
-            mb: 4,
+            fontFamily: "Cairo",
+            margin: "0 1em 2em 1em",
           }}
         >
           Update
@@ -701,6 +741,8 @@ function ChangePaypal({ closeModal, userId }) {
 }
 
 function ModifyInformation({ closeModal, userId }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   function onSubmit(formData) {
     axios({
       url: `https://terminpro2022.herokuapp.com/api/user/${userId}`,
@@ -743,10 +785,19 @@ function ModifyInformation({ closeModal, userId }) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
-          width: "50%",
+          width: mediaQuery ? "90%" : "50%",
           margin: "auto",
         }}
       >
+        <div
+          className="modal-title"
+          style={{
+            width: "100%",
+          }}
+        >
+          Change Information
+        </div>
+
         <Controller
           name="name"
           control={control}
@@ -845,15 +896,19 @@ function ModifyInformation({ closeModal, userId }) {
 }
 
 function SelectSubscription({ plans, userId, closeModal }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   return (
     <>
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
+        <div className="modal-title">Select Subscriotion</div>
         <Swiper
           style={{
             height: "300px",
@@ -862,7 +917,7 @@ function SelectSubscription({ plans, userId, closeModal }) {
           modules={[Navigation, Pagination, A11y]}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}
+          slidesPerView={mediaQuery ? 1 : 3}
           pagination={{
             clickable: true,
           }}
@@ -892,6 +947,8 @@ function AddService({
   services,
   setErrorMessage,
 }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   const {
     handleSubmit,
     control,
@@ -963,7 +1020,7 @@ function AddService({
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Name"
@@ -991,7 +1048,7 @@ function AddService({
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Description"
@@ -1021,7 +1078,7 @@ function AddService({
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Time"
@@ -1053,7 +1110,7 @@ function AddService({
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Price"
@@ -1088,6 +1145,8 @@ function AddService({
 }
 
 function ModifyService({ closeModal, serviceId, setServices }) {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   const { handleSubmit, control } = useForm();
   function onSubmit(formData) {
     axios({
@@ -1134,7 +1193,7 @@ function ModifyService({ closeModal, serviceId, setServices }) {
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Name"
@@ -1159,7 +1218,7 @@ function ModifyService({ closeModal, serviceId, setServices }) {
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Description"
@@ -1184,7 +1243,7 @@ function ModifyService({ closeModal, serviceId, setServices }) {
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Time"
@@ -1209,7 +1268,7 @@ function ModifyService({ closeModal, serviceId, setServices }) {
                   sx={{
                     mr: "auto",
                     ml: "auto",
-                    width: "60%",
+                    width: mediaQuery ? "80%" : "60%",
                     mb: 4,
                   }}
                   label="Price"

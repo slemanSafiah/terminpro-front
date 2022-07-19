@@ -16,6 +16,8 @@ let Categories = [
 ];
 
 export default function Section2() {
+  const mediaQuery = window.matchMedia("(max-width: 600px)").matches;
+
   return (
     <div className="home-section2" id="discover">
       <div className="home-section2-title">Discover by Categories</div>
@@ -25,7 +27,7 @@ export default function Section2() {
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}
+          slidesPerView={mediaQuery ? 2 : 3}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,

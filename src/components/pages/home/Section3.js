@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { Empty } from "antd";
@@ -12,6 +13,7 @@ export default function Section3() {
       url: "https://terminpro2022.herokuapp.com/api/user/institutions",
       method: "GET",
     }).then((res) => {
+      console.log(res.data);
       settInstitution(res.data);
     });
   }, []);
@@ -28,6 +30,7 @@ export default function Section3() {
                   image={inst.img}
                   name={inst.institutionName}
                   desc={inst.description}
+                  id={inst._id}
                 />
               </Grid>
             );
@@ -38,9 +41,15 @@ export default function Section3() {
   );
 }
 
-function InstitutionCard({ name, image, desc }) {
+function InstitutionCard({ id, name, image, desc }) {
+  const navigate = useNavigate();
   return (
-    <div className="institution-card">
+    <div
+      className="institution-card"
+      onClick={(e) => {
+        navigate(`/institution/${id}`);
+      }}
+    >
       {image ? (
         <img className="institution-image-card" src={image} alt={name} />
       ) : (
