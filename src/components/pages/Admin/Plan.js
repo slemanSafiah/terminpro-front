@@ -37,7 +37,12 @@ export default function Plan({ plan, type, setPlans, closeModal, userId }) {
 
   if (type === "owner")
     return (
-      <div className="plan-card-select">
+      <div
+        className="plan-card-select"
+        style={{
+          backgroundColor: "rgba(240,240,240,1)",
+        }}
+      >
         <div className="plan-content-select">
           <div>Plan : {plan.name}</div>
           <div>No. Services : {plan.serviceLimit}</div>

@@ -350,7 +350,7 @@ export default function InstitutionComp() {
                             </div>
                             <div className="modal-service-price">
                               <div>{ser.price}</div>
-                              <AttachMoneyOutlined />
+                              <AttachMoneyOutlined fontSize="14px" />
                             </div>
                           </div>
                           <Divider />
@@ -379,6 +379,8 @@ export default function InstitutionComp() {
                         mt: 2.5,
                         pt: 2,
                         pb: 2,
+                        fontFamily: "Cairo",
+                        fontSize: "16px",
                       }}
                       type="submit"
                       color="secondary"

@@ -225,6 +225,7 @@
 /* ? Modal Component */
 
 .modal {
+  font-family: Cairo !important;
   height: 70vh;
   position: relative;
 }
@@ -232,7 +233,7 @@
 .modal-title {
   text-align: center;
   padding-bottom: 0.5em;
-  font-family: Poppins;
+  font-family: "Cairo";
   font-size: 2rem;
   font-weight: 500;
 }
@@ -303,7 +304,6 @@
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .modal-total-stat-button {
@@ -314,7 +314,7 @@
   position: absolute;
   bottom: 0;
   color: white;
-  font-family: Poppins;
+  font-family: Cairo;
   font-weight: 500;
   transition: 300ms ease-in-out;
   cursor: pointer;
@@ -455,6 +455,7 @@
 
   .institution-section1-slider {
     width: 100%;
+    z-index: -1;
   }
 
   .institution-section1-slider-slide {
@@ -463,7 +464,7 @@
 
   .institution-img {
     width: 100%;
-    height: 400px;
+    height: 300px;
   }
 
   .institution-section1-card-category {
@@ -554,12 +555,12 @@
     height: auto;
     width: 100%;
     position: relative;
+    font-family: Cairo !important;
   }
 
   .modal-title {
     text-align: center;
     padding-bottom: 0.5em;
-    font-family: Poppins;
     font-size: 1.3rem;
     font-weight: 500;
   }
@@ -623,11 +624,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5em 0.5em;
+    width: 100%;
   }
 
   .modal-service-name {
     font-size: 1.2rem;
     font-weight: 500;
+    width: 80%;
   }
 
   .modal-service-price {
@@ -635,7 +638,6 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    font-weight: bold;
   }
 
   .modal-total-stat-button {
